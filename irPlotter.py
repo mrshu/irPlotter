@@ -79,10 +79,13 @@ class IrPlotter(wx.Frame):
                 dc.SetBrush(wx.Brush('#004fc5'))
             else:
                 dc.SetBrush(wx.Brush('#c56c00'))
-                
-            dc.DrawRectangle(k*65 + 30, 20, 60,(int(v)/1023.0)*200)
-            dc.DrawText(str(k+1) , k*65 + 40, 30)
-            dc.DrawText(str(v), k*65 + 40, 240)
+            
+            try:               
+                dc.DrawRectangle(k*65 + 30, 20, 60,(int(v)/1023.0)*200)
+                dc.DrawText(str(k+1) , k*65 + 40, 30)
+                dc.DrawText(str(v), k*65 + 40, 240)
+            except ValueError:
+                pass
 
             k += 1
 
